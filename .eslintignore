@@ -1,0 +1,13 @@
+dist/
+_*
+docs/
+**/config*.js
+gulpfile.js
+package.json
+demo-chat.js
+**/vendors/*.js
+**/cordova/hooks/*
+ios/*
+android/*
+logs/*
+node_modules/*

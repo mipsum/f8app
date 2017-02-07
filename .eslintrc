@@ -1,0 +1,151 @@
+{
+  "ecmaFeatures": {
+    "globalReturn": true,
+    "modules": true
+  },
+
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "babel",
+    "flowtype",
+    "react"
+  ],
+
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+
+  "globals": {
+    "LOG" : true,
+    "__BUNDLE_START_TIME__": false,
+    "__DEV__": true,
+    "__dirname": false,
+    "__filename": false,
+    "__fbBatchedBridgeConfig": false,
+    "alert": false,
+    "cancelAnimationFrame": false,
+    "clearImmediate": true,
+    "clearInterval": false,
+    "clearTimeout": false,
+    "console": false,
+    "document": false,
+    "escape": false,
+    "exports": false,
+    "global": false,
+    "jest": false,
+    "pit": false,
+    "Map": true,
+    "module": false,
+    "navigator": false,
+    "process": false,
+    "Promise": false,
+    "requestAnimationFrame": true,
+    "require": false,
+    "Set": true,
+    "setImmediate": true,
+    "setInterval": false,
+    "setTimeout": false,
+    "window": false,
+    "FormData": true,
+    "XMLHttpRequest": false,
+
+    // Flow "known-globals" annotations:
+    "ReactElement": false,
+    "ReactClass": false,
+    "Class": false
+  },
+
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
+  },
+
+  "extends": ["standard", "plugin:react/recommended"],
+
+  "rules": {
+    "react/display-name": 0,
+    "react/jsx-boolean-value": 0,
+    "jsx-quotes": [1, "prefer-double"],
+    "react/jsx-sort-props": 0,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
+    "react/no-did-mount-set-state": [1, "disallow-in-func"],
+    "react/no-did-update-set-state": [1, "disallow-in-func"],
+    "react/no-multi-comp": 0,
+    "react/no-unknown-property": 0,
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/self-closing-comp": 1,
+    "react/wrap-multilines": 0,
+    "react/jsx-no-undef": 2,
+
+    "flowtype/boolean-style": [ 2, "boolean" ],
+    "flowtype/define-flow-type": 1,
+    "flowtype/delimiter-dangle": 0,
+    "flowtype/generic-spacing": [ 1, "never" ],
+    "flowtype/no-weak-types": 0,
+    "flowtype/require-parameter-type": 0,
+    "flowtype/require-return-type": 0,
+    "flowtype/require-valid-file-annotation": 0,
+    "flowtype/semi": 0,
+    "flowtype/space-after-type-colon": [ 0, "always" ],
+    "flowtype/space-before-generic-bracket": [ 0, "never" ],
+    "flowtype/space-before-type-colon": [ 1, "never" ],
+    "flowtype/type-id-match": 0,
+    "flowtype/union-intersection-spacing": [ 0, "always" ],
+    "flowtype/use-flow-type": 1,
+    "flowtype/valid-syntax": 1,
+
+    "babel/new-cap": 1,
+    "babel/object-curly-spacing": [1, "always"],
+    "babel/object-shorthand": 0,
+    "babel/arrow-parens": [1, "as-needed"],
+
+
+    // Stylistic Issues
+    // These rules are purely matters of style and are quite subjective.
+
+    "semi": [1, "never"], // require or disallow use of semicolons instead of ASI
+    "comma-dangle": [0, "always-multiline"],
+    "no-multiple-empty-lines": 0,
+    "padded-blocks": [0, "never"],
+    "brace-style": [1, "stroustrup", { "allowSingleLine": true }],
+    "indent": [1, 2, {"SwitchCase": 1}],
+    "space-before-function-paren": [ 1, "always" ],
+
+
+    // Variables
+    // These rules have to do with variable declarations.
+    "eqeqeq": ["error", "always"],
+    "no-catch-shadow": 1,            // disallow the catch clause parameter name being the same as a variable in the outer scope (off by default in the node environment)
+    "no-delete-var": 1,              // disallow deletion of variables
+    "no-label-var": 1,               // disallow labels that share a name with a variable
+    "no-shadow": 1,                  // disallow declaration of variables already declared in the outer scope
+    "no-shadow-restricted-names": 1, // disallow shadowing of names such as arguments
+    "no-undef": 2,                   // disallow use of undeclared variables unless mentioned in a /*global */ block.
+    "no-undefined": 0,               // disallow use of undefined variable (off by default)
+    "no-undef-init": 1,              // disallow use of undefined when initializing variables
+    "no-unused-vars": [1, {"vars": "all", "args": "none"}], // disallow declaration of variables that are not used in the code
+    "no-use-before-define": 0,       // disallow use of variables before they are defined
+    "yoda": ["error", "always", { "onlyEquality": true }],                       // require or disallow Yoda conditions
+
+    // Node.js
+    // These rules are specific to JavaScript running on Node.js.
+
+    "handle-callback-err": 1,        // enforces error handling in callbacks (off by default) (on by default in the node environment)
+    "no-mixed-requires": 1,          // disallow mixing regular variable and require declarations (off by default) (on by default in the node environment)
+    "no-new-require": 1,             // disallow use of new operator with the require function (off by default) (on by default in the node environment)
+    "no-path-concat": 1,             // disallow string concatenation with __dirname and __filename (off by default) (on by default in the node environment)
+    "no-process-exit": 0,            // disallow process.exit() (on by default in the node environment)
+    "no-restricted-modules": 1,      // restrict usage of specified node modules (off by default)
+    "no-sync": 0,                    // disallow use of synchronous methods (off by default)
+  }
+}

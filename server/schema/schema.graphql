@@ -1,0 +1,123 @@
+input AddToScheduleInput {
+  sessionId: ID!
+  clientMutationId: String
+}
+
+type AddToSchedulePayload {
+  session: Session
+  clientMutationId: String
+}
+
+type Config {
+  wifiNetwork: String
+  wifiPassword: String
+}
+
+# Frequently asked questions
+type FAQ implements Node {
+  # The ID of an object
+  id: ID!
+  question: String
+  answer: String
+}
+
+# Facebook friend
+type Friend {
+  id: ID
+  name: String
+  picture: String
+
+  # Friends schedule
+  schedule: [Session]
+}
+
+# A place at F8 venue
+type Map {
+  # The ID of an object
+  id: ID!
+  name: String
+  map: String
+}
+
+type Mutation {
+  addToSchedule(input: AddToScheduleInput!): AddToSchedulePayload
+}
+
+# An object with an ID
+interface Node {
+  # The id of the object.
+  id: ID!
+}
+
+type Notification {
+  # The ID of an object
+  id: ID!
+  text: String
+  url: String
+
+  # Unix timestamp when the notification was sent.
+  time: Float
+}
+
+# Facebook pages
+type Page implements Node {
+  # The ID of an object
+  id: ID!
+  title: String
+  url: String
+  logo: String
+}
+
+type Query {
+  # Fetches an object given its ID
+  node(
+    # The ID of an object
+    id: ID!
+  ): Node
+  viewer: User
+
+  # F8 agenda
+  schedule: [Session]
+}
+
+# Represents F8 agenda item
+type Session implements Node {
+  # The ID of an object
+  id: ID!
+  title: String
+  slug: String
+  day: Int
+  startTime: Float
+  endTime: Float
+  location: Map
+  description: String
+  speakers: [Speaker]
+
+  # If the session has been added to persons schedule
+  isAdded: Boolean
+
+  # User's friends who attend this session
+  friends: [Friend]
+}
+
+type Speaker implements Node {
+  # The ID of an object
+  id: ID!
+  name: String
+  title: String
+  picture: String
+}
+
+# A person who uses our app
+type User implements Node {
+  # The ID of an object
+  id: ID!
+  name: String
+
+  # User friends who are also in the F8 app and enabled sharing
+  friends: [Friend]
+  notifications: [Notification]
+  faqs: [FAQ]
+  pages: [Page]
+  config: Config
+}
